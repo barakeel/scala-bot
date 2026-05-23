@@ -12,10 +12,8 @@ private def reactiveFocus(state: State, receiver: Int, action: ClueAction) =
 		.maxBy((o, _) => if o == state.hands(receiver)(0) then -1 else o)
 
 	clue.kind match
-		case ClueKind.Colour =>
-			if state.includesVariant(RAINBOWISH) || state.variant.rainbowS then clue.value + 1 else focusIndex + 1
-		case ClueKind.Rank =>
-			if state.includesVariant(PINKISH) || state.variant.pinkS then clue.value else focusIndex + 1
+		case ClueKind.Colour => clue.value + 1
+		case ClueKind.Rank => clue.value
 
 def interpretStable(prev: Reactor, game: Reactor, action: ClueAction, stall: Boolean) =
 	val ClueAction(giver, target, _, _) = action

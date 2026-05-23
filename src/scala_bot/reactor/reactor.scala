@@ -222,8 +222,8 @@ object Reactor:
 							else
 								interpretStable(prev, g, action, stall = false)
 
-						case None if prev.common.obviousLocked(prev, giver) || game.inEndgame || prev.state.clueTokens == 8 =>
-							interpretStable(prev, g, action, stall = true)
+//				  case None if prev.common.obviousLocked(prev, giver) || game.inEndgame || prev.state.clueTokens == 8 =>
+//						interpretStable(prev, g, action, stall = true)
 
 						case None =>
 							val reacter = (1 until state.numPlayers).findSome: i =>
